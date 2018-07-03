@@ -1,38 +1,44 @@
-const buttons = document.getElementsByClassName('progress-button');
-const progressBars = document.getElementsByClassName('progress');
-const progressPercents = document.getElementsByClassName('progress-percent');
-let progressValues = [90, 20, 45];
-
-const setProgress = (barIndex, changeString) => {
-	let progress = progressValues[barIndex];
-	let [ operation, value ] = changeString.split(' ');
-	value = parseInt(value);
-	let newProgress = operation === 'minus' ? progress - value : progress + value;
-	if (newProgress > 100) {
-		newProgress = 100;
-	} else if (newProgress < 0) {
-		newProgress = 0;
+class Progress {
+	constructor() {
+		this.bars = [90, 20, 45],
+		this._bindHandlers();
+		for (let i of [0, 1, 2]) {
+			this.render(i);
+		}
 	}
-	progressValues[barIndex] = newProgress;
-	renderProgress(barIndex);
-};
 
-const renderProgress = barIndex => {
-	const selectedBar = progressBars[barIndex];
-	selectedBar.style.width = `${progressValues[barIndex]}%`;
-	selectedBar.parentElement.getElementsByClassName('progress-percent')[0].innerHTML = `${progressValues[barIndex]}%`;
-};
+	_bindHandlers() {
+		let buttonElements = document.getElementsByClassName('progress-button');
+		for (let button of buttonElements) {
+			button.onclick = e => {
+				e.preventDefault();
+				const barIndex = document.getElementById('bar-select').value;
+				this.set(barIndex, e.target.value);
+			};
+		}
+	}
 
-// render intial progress
-for (let i of [0, 1, 2]) {
-	renderProgress(i);
+	set(index, changeString) {
+		const progress = this.bars[index];
+		let [operation, value] = changeString.split(' ');
+		value = parseInt(value);
+		let newProgress = operation === 'minus' ? progress - value : progress + value;
+
+		if (newProgress > 100) {
+			newProgress = 100;
+		} else if (newProgress < 0) {
+			newProgress = 0;
+		}
+
+		this.bars[index] = newProgress;
+		this.render(index);
+	}
+
+	render(index) {
+		let barElement = document.getElementsByClassName('progress')[index];
+		barElement.style.width = `${this.bars[index]}%`;
+		barElement.parentElement.getElementsByClassName('progress-percent')[0].innerHTML = `${this.bars[index]}%`;
+	}
 }
 
-// bind click events
-for (let button of buttons) {
-	button.onclick = e => {
-		e.preventDefault();
-		const barIndex = document.getElementById('bar-select').value;
-		setProgress(barIndex, e.target.value);
-	};
-}
+const progressBars = new Progress();

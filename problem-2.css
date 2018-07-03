@@ -1,0 +1,74 @@
+.progress-bar {
+	width: 90%;
+	height: 80px;
+	background-color: #FFCFD2;
+	margin: 20px auto;
+	position: relative;
+	text-align: center;
+}
+.progress {
+	height: 100%;
+	background-color: #9EBC9E;
+	transition: all 500ms ease;
+	width: 50%;
+	
+}
+
+.progress-percent {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	color: darkslategray;
+}
+
+#controls {
+	width: 90%;
+	margin: 0 auto;
+	display: grid;
+	grid-column-gap: 5px;
+	grid-row-gap: 5px;
+	grid-template-areas:
+		'dropdown dropdown'
+		'minus-10 plus-10'
+		'minus-25 plus-25';
+}
+
+#controls select {
+	grid-area: dropdown;
+	height: 30px;
+	background-color: #553E4E;
+	color: #FFF6F6;
+}
+#controls button {
+	color: #FFF6F6;
+	height: 30px;
+}
+
+#controls button:nth-of-type(1) {
+	grid-area: minus-25;
+	background-color: #E0479E;
+}
+
+#controls button:nth-of-type(2) {
+	grid-area: minus-10;
+	background-color: #E0479E; 
+}
+
+#controls button:nth-of-type(3) {
+	grid-area: plus-10;
+	background-color: #9EBC9E;
+	color: #553E4E;
+}
+
+#controls button:nth-of-type(4) {
+	grid-area: plus-25;
+	background-color: #9EBC9E;
+	color: #553E4E;
+}
+
+@media only screen and (min-width: 600px) {
+	#controls {
+		grid-template-areas:
+		'dropdown minus-25 minus-10 plus-10 plus-25';
+	}
+}

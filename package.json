@@ -1,0 +1,12 @@
+{
+  "name": "charles-schwab-coding-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "problem-1": "open problem-1.html",
+    "problem-2": "open problem-2.html"
+  },
+  "author": "",
+  "license": "ISC"
+}

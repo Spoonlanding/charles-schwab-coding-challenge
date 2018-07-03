@@ -1,0 +1,1 @@
+## Spencer Mitchell coding challenge for Charles Schwab

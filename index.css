@@ -10,6 +10,7 @@ button, select {
 	border: none;
 	box-shadow:n one;
 	cursor: pointer;
+	font-weight: bold;
 }
 #wrapper {
 	display: grid;
@@ -24,6 +25,10 @@ button, select {
 
 #title h1, #title h2 {
 	margin: 0 auto;
+}
+
+#title a {
+	color: #E0479E;
 }
 
 #wrapper-problem-2 {

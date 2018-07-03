@@ -1,6 +1,5 @@
 #wrapper-problem-1 {
 	grid-area: problem-1;
-	padding-top: 15%;
 	padding: 20px;
 }
 
@@ -16,7 +15,6 @@
 	width: 20%;
 	position: relative;
 	background-color: #FFAFC5;
-	user-select: none;
 	font-weight: bold;
 }
 

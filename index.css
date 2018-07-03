@@ -12,6 +12,7 @@ button, select {
 	cursor: pointer;
 	font-weight: bold;
 }
+
 #wrapper {
 	display: grid;
 	grid-template-areas:
@@ -19,6 +20,7 @@ button, select {
 		'problem-1'
 		'problem-2';
 }
+
 #title {
 	grid-area: title;
 }
